@@ -1,0 +1,24 @@
+count_1w.txt:
+  url: http://norvig.com/ngrams/
+  raw: http://norvig.com/ngrams/count_1w.txt
+  licence: MIT
+
+darius.txt:
+  url: https://github.com/dariusk/corpora
+  raw: https://raw.githubusercontent.com/dariusk/corpora/master/data/words/expletives.json
+  licence: CC0 (Public Domain)
+
+ldnoobw.txt:
+  url: https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words
+  raw: https://raw.githubusercontent.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words/master/en
+  license: CC Attribution
+
+mauricebutler.txt:
+  url: https://github.com/MauriceButler/badwords
+  raw: https://raw.githubusercontent.com/MauriceButler/badwords/master/array.js
+  license: MIT
+
+reimertz.txt:
+  url: https://github.com/reimertz/curse-words
+  raw: https://raw.githubusercontent.com/reimertz/curse-words/master/index.js
+  licence: MIT
