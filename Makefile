@@ -1,3 +1,8 @@
+.PHONY: clean tidy
+
+autoflake := autoflake --in-place --recursive --remove-unused-variables --expand-star-imports --remove-all-unused-imports
+black := black --line-length 100
+
 bad :=
 bad += problematic.txt
 bad += darius.txt
@@ -10,19 +15,24 @@ count := 16384
 all: words.txt
 
 all.txt: count_1w.txt
-	cat $< | cut -f 1 > $@
+	cat $< | sort -k 2nr | cut -f 1 > $@
 
 problematic.txt: all.txt
-	egrep 'fuck|shit|damn|bitch|cunt|cumshot|porn' all.txt | sort > $@
+	egrep 'fuck|shit|damn|bitch|cunt|cumshot|porn|hitler|nazi' all.txt | sort > $@
 
 bad.txt: $(bad)
 	cat $(bad) | sort | uniq > $@
 
-ok.txt: bad.txt all.txt clean.py
-	./clean.py bad.txt all.txt > $@
+ok.txt: bad.txt all.txt gigamonkeys/clean.py
+	./gigamonkeys/clean.py bad.txt all.txt > $@
 
 words.txt: ok.txt
 	head -$(count) $< > $@
+
+fmt:
+	$(autoflake) .
+	isort .
+	$(black) .
 
 tidy:
 	rm -f *~
