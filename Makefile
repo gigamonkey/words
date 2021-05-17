@@ -17,8 +17,8 @@ all: words.txt
 all.txt: count_1w.txt
 	cat $< | sort -k 2nr | cut -f 1 > $@
 
-problematic.txt: all.txt
-	egrep 'fuck|shit|damn|bitch|cunt|cumshot|porn|hitler|nazi' all.txt | sort > $@
+problematic.txt: all.txt problematic-patterns.txt
+	egrep -f problematic-patterns.txt all.txt | sort > $@
 
 bad.txt: $(bad)
 	cat $(bad) | sort | uniq > $@
